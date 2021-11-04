@@ -67,23 +67,15 @@ function styleKeywords(line){
 	var words = line.split(' ');
 
     for(let i = 0; i < redKeywords.length; i++) {
-        /*let stIndex = line.search(redKeywords[i]);
-        let endIndex = stIndex + redKeywords[i].length - 1;
-        if (stIndex != -1  && isKeyword(line, stIndex, endIndex)) {
-            line = line.substring(0, stIndex) + "<span style='color: rgb(207, 34, 46);'>" + line.substring(stIndex, stIndex + redKeywords[i].length) + "</span>" + line.substring(stIndex + redKeywords[i].length, line.length);
-        }*/
 		var index= 0;
 		for(let j=0; j< words.length; j++){
       words[j]=words[j].replace(/[^a-zA-Z ]/g, "")
 
 			if( words[j]== redKeywords[i]){
-      console.log("1"+line);
-      console.log(words[j]);
 			line2 = line.substring(0, index) + "<span style='color: rgb(207, 34, 46);'>" + line.substring(index, index + redKeywords[i].length) + "</span>";
       line2= line2+ line.substring(index + redKeywords[i].length, line.length);
       index+=line2.length;
       line=line2;
-      console.log("2"+line);
       }
 			index+=words[j].length;
 			index++;
